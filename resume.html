@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - RISHU KUMAR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #000000 50%, #000000 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        /* Main Content */
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .resume-name {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .resume-title {
+            font-size: 1.5rem;
+            color: #b2becd;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #e0e0e0;
+        }
+
+        .contact-item svg {
+            color: #ff6b35;
+            width: 16px;
+            height: 16px;
+        }
+
+        .resume-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 0.5rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: #b2becd;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-duration {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .skill-category h4 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: #b2becd;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            color: #ff6b35;
+            position: absolute;
+            left: 0;
+        }
+
+        .project-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            color: #b2becd;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .project-description {
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .education-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            color: #b2becd;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-duration {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .education-details {
+            color: #b2becd;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .certificate-item, .achievement-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .certificate-title, .achievement-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-date, .achievement-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .download-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .download-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 2rem;
+            }
+
+            .resume-container {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .resume-name {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .resume-section {
+                padding: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">RISHU KUMAR</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Resume Content -->
+    <div class="resume-container">
+        <!-- Header Section -->
+        <div class="resume-header">
+            <h1 class="resume-name">RISHU KUMAR</h1>
+            <p class="resume-title">Full Stack Java Developer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 13.065l-11.99-7.065v14h23.98v-14l-11.99 7.065zm11.99-9.065h-23.98l11.99 7.065 11.99-7.065z"/>
+                    </svg>
+                    <span>rishu3123@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    <span>+91 7061671115</span>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>Noida, India</span>
+                </div>
+                <div class="contact-item">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/>
+                    </svg>
+                    <span>github.com/rishulpu</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="resume-section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-item">
+                <h3 class="experience-title">Java Developer Intern</h3>
+                <p class="experience-company">EazyByts Web Solutions</p>
+                <p class="experience-duration">June 2025 - August 2025</p>
+                <p class="experience-description">Developed a real-time chat app using Spring Boot and WebSocket, enabling seamless two-way communication between users. Gained hands-on experience in full-stack development, debugging, and deploying Java-based web applications in a collaborative environment.</p>
+            </div>
+            <div class="experience-item">
+                <h3 class="experience-title">Java Developer Intern</h3>
+                <p class="experience-company">Kaiser Computers (P) Ltd. (KCPL), Noida, India</p>
+                <p class="experience-duration">Nov 2023 - April 2024</p>
+                <p class="experience-description">Contributed to university website development projects using Spring Boot, focusing on backend logic, data handling, and integration. Regularly tested RESTful APIs using Postman to ensure functionality, data consistency, and proper error handling.</p>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="resume-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <ul class="skill-list">
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                        <li>SQL</li>
+                        <li>HTML & CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Frameworks & Technologies</h4>
+                    <ul class="skill-list">
+                        <li>Collections</li>
+                        <li>JDBC</li>
+                        <li>Servlet</li>
+                        <li>Spring Core</li>
+                        <li>Spring ORM</li>
+                        <li>Spring MVC</li>
+                        <li>Spring Boot</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Database & Tools</h4>
+                    <ul class="skill-list">
+                        <li>MongoDB</li>
+                        <li>MySQL</li>
+                        <li>Redis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul class="skill-list">
+                        <li>Problem Solving</li>
+                        <li>Critical Thinking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="resume-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-item">
+                <h3 class="project-title">BankEase</h3>
+                <p class="project-tech"><strong>Technologies:</strong> Java Core, Maven, Spring JPA, MySQL, Spring Boot, REST APIs</p>
+                <p class="project-description">Enhanced a secure banking system allowing customers to create, update, and manage their bank accounts, supporting multiple account types (Saving and Current). Performed balance inquiry, account statements, and profile management features for seamless user experience. Built secure fund transfers within the bank, ensuring data integrity and transaction security. Utilized Spring Boot, JPA, and MySQL for efficient backend processing and REST APIs for smooth front-end/backend communication.</p>
+            </div>
+            <div class="project-item">
+                <h3 class="project-title">EcoBin</h3>
+                <p class="project-tech"><strong>Technologies:</strong> HTML & CSS, Java, JDBC, Servlet</p>
+                <p class="project-description">Planned and developed an EcoBin using HTML, CSS, and JavaScript for the frontend, ensuring an interactive user interface. Executed SQL databases to store and manage customer, seller, and product data for login, registration, and product management. Operated the Servlet framework to establish dynamic web interaction and seamless connectivity between the frontend, backend and database.</p>
+            </div>
+            <div class="project-item">
+                <h3 class="project-title">Online Compiler</h3>
+                <p class="project-tech"><strong>Technologies:</strong> JavaScript, TypeScript, React, CodeMirror API</p>
+                <p class="project-description">Developed a fully functional online compiler supporting JavaScript and TypeScript. Integrated CodeMirror API for real-time syntax highlighting and code editing. Built the frontend using React for dynamic UI and state management. Enabled live code execution and error handling in a seamless user interface.</p>
+            </div>
+        </div>
+
+        <!-- Certificates Section -->
+        <div class="resume-section">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificate-item">
+                <h3 class="certificate-title">Cyber Tech Fest – OASIS & Quick Heal</h3>
+                <p class="certificate-date">November 2024</p>
+            </div>
+            <div class="certificate-item">
+                <h3 class="certificate-title">Code Storm - 36-Hour Hackathon for Web-Developer, Powered by MLSA</h3>
+                <p class="certificate-date">October 2024</p>
+            </div>
+            <div class="certificate-item">
+                <h3 class="certificate-title">Object Oriented Programming – Course Completion Certificate</h3>
+                <p class="certificate-date">November 2024</p>
+            </div>
+            <div class="certificate-item">
+                <h3 class="certificate-title">Postman: The Complete Guide – REST API Testing (Udemy)</h3>
+                <p class="certificate-date">May 2025</p>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="resume-section">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievement-item">
+                <h3 class="achievement-title">Completed Java Expert Training Certification by Ducat</h3>
+                <p class="achievement-date">September 2023</p>
+            </div>
+            <div class="achievement-item">
+                <h3 class="achievement-title">Received a full-time job offer post-internship (KCPL)</h3>
+                <p class="achievement-date">April 2024</p>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="resume-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3 class="education-title">Master of Computer Application</h3>
+                <p class="education-school">Lovely Professional University, Phagwara, Punjab</p>
+                <p class="education-duration">August 2024 - Present</p>
+                <p class="education-details">CGPA: 8.7</p>
+            </div>
+            <div class="education-item">
+                <h3 class="education-title">Bachelor of Arts</h3>
+                <p class="education-school">Veer Kunwar Singh University, Arrah, Bihar</p>
+                <p class="education-duration">August 2020 - August 2023</p>
+                <p class="education-details">Percentage: 60%</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Button -->
+    <a href="resume/resume.pdf" class="download-btn" download="RISHU_KUMAR_Resume.pdf">Download PDF</a>
+
+    <script>
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html> 
