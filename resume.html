@@ -285,6 +285,14 @@
         @media (max-width: 768px) {
             header {
                 padding: 1rem 2rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .resume-container {
@@ -293,6 +301,10 @@
 
             .resume-name {
                 font-size: 2.5rem;
+            }
+
+            .resume-title {
+                font-size: 1.3rem;
             }
 
             .contact-info {
@@ -304,14 +316,131 @@
                 padding: 1.5rem;
             }
 
+            .section-title {
+                font-size: 1.5rem;
+            }
+
             .skills-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .skill-category {
+                padding: 1rem;
+            }
+
+            .skill-category h4 {
+                font-size: 1.1rem;
+            }
+
+            .experience-title {
+                font-size: 1.1rem;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
             }
 
             .download-btn {
                 bottom: 1rem;
                 right: 1rem;
                 padding: 0.8rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.8rem 1rem;
+            }
+
+            nav ul {
+                gap: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .resume-container {
+                padding: 5rem 0.8rem 1rem;
+            }
+
+            .resume-name {
+                font-size: 2rem;
+            }
+
+            .resume-title {
+                font-size: 1.1rem;
+            }
+
+            .resume-header {
+                padding: 1.5rem;
+            }
+
+            .contact-info {
+                gap: 0.8rem;
+            }
+
+            .contact-item {
+                font-size: 0.9rem;
+            }
+
+            .resume-section {
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .skills-grid {
+                gap: 0.8rem;
+            }
+
+            .skill-category {
+                padding: 0.8rem;
+            }
+
+            .skill-category h4 {
+                font-size: 1rem;
+            }
+
+            .skill-list li {
+                font-size: 0.9rem;
+            }
+
+            .experience-title {
+                font-size: 1rem;
+            }
+
+            .experience-company {
+                font-size: 1rem;
+            }
+
+            .project-title {
+                font-size: 1rem;
+            }
+
+            .project-tech {
+                font-size: 0.8rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+            }
+
+            .certificate-title,
+            .achievement-title {
+                font-size: 1rem;
+            }
+
+            .education-title {
+                font-size: 1rem;
+            }
+
+            .download-btn {
+                bottom: 0.8rem;
+                right: 0.8rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
             }
         }
     </style>
